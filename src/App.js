@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Camera, Mail, Phone, MapPin, Calendar } from 'lucide-react';
+import { Code, Cpu, Database, Globe } from 'lucide-react';
 
 // Assume bc.png is imported correctly
-import bc from './bcs.png';
+import bc from './bc.jpg';
 import me from './me.jpg';
 import mob from './mob.png';
 import web from './web.png';
@@ -16,6 +17,11 @@ import rpdtwo from './rpdtwo.png';
 import gtone from './gtone.png';
 import gtwo from './gtwo.png';
 import gthree from './gthree.png';
+import pbotone from './pbotone.png';
+import pbotwo from './pbottwo.png';
+import pbothree from './pbotthree.png';
+import { motion } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 
 const Section = ({ id, className, children }) => (
   <section id={id} className={`py-16 ${className}`}>
@@ -25,17 +31,86 @@ const Section = ({ id, className, children }) => (
   </section>
 );
 
-const SkillBar = ({ skill, percentage }) => (
-  <div className="mb-4">
-    <h3 className="text-lg font-semibold mb-2">{skill}</h3>
-    <div className="w-full bg-gray-200 rounded-full h-2">
-      <div 
-        className="bg-yellow-500 h-2 rounded-full transition-all duration-500 ease-out" 
-        style={{ width: `${percentage}%` }}
-      ></div>
+const SkillBar = ({ skill, percentage, icon: Icon }) => (
+  <motion.div
+    className="mb-6 bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+  >
+    <div className="flex items-center mb-2">
+      <Icon className="w-6 h-6 mr-2 text-yellow-500" />
+      <h3 className="text-lg font-semibold">{skill}</h3>
+    </div>
+    <div className="w-full bg-gray-200 rounded-full h-3">
+      <motion.div 
+        className="bg-yellow-500 h-3 rounded-full"
+        initial={{ width: 0 }}
+        animate={{ width: `${percentage}%` }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      />
+    </div>
+    <span className="text-sm text-gray-600 mt-1 block text-right">{percentage}%</span>
+  </motion.div>
+);
+
+const SkillCategory = ({ title, skills, icon: Icon }) => (
+  <div className="mb-8">
+    <div className="flex items-center mb-4">
+      <Icon className="w-8 h-8 mr-2 text-yellow-600" />
+      <h2 className="text-2xl font-bold">{title}</h2>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {skills.map((skill, index) => (
+        <SkillBar key={index} {...skill} />
+      ))}
     </div>
   </div>
 );
+
+const SkillsDashboard = () => {
+  const skillCategories = [
+    {
+      title: "Programming Languages",
+      icon: Code,
+      skills: [
+        { skill: "Python", percentage: 80, icon: Code },
+        { skill: "C++", percentage: 75, icon: Code },
+        { skill: "Java", percentage: 85, icon: Code },
+        { skill: "Kotlin", percentage: 90, icon: Code },
+      ]
+    },
+    {
+      title: "Web Technologies",
+      icon: Globe,
+      skills: [
+        { skill: "ReactJS", percentage: 85, icon: Globe },
+        { skill: "TypeScript", percentage: 70, icon: Globe },
+        { skill: "Vue.js", percentage: 70, icon: Globe },
+        { skill: "Next.js", percentage: 80, icon: Globe },
+      ]
+    },
+    {
+      title: "Mobile Development",
+      icon: Cpu,
+      skills: [
+        { skill: "React Native", percentage: 80, icon: Cpu },
+        { skill: "iOS (Swift)", percentage: 65, icon: Cpu },
+        { skill: "Android (Kotlin)", percentage: 75, icon: Cpu },
+      ]
+    },
+    {
+      title: "Other Technologies",
+      icon: Database,
+      skills: [
+        { skill: "MySQL", percentage: 80, icon: Database },
+        { skill: "R", percentage: 65, icon: Database },
+        { skill: "HTML", percentage: 95, icon: Globe },
+        { skill: "CSS", percentage: 90, icon: Globe },
+      ]
+    },
+  ];
+}
 
 const ProjectCard = ({ title, description, images, technologies, link }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -72,51 +147,142 @@ const ProjectCard = ({ title, description, images, technologies, link }) => {
     </div>
   );
 };const App = () => {
+  const skillCategories = [
+    {
+      title: "Programming Languages",
+      icon: Code,
+      skills: [
+        { skill: "Python", percentage: 80, icon: Code },
+        { skill: "C++", percentage: 75, icon: Code },
+        { skill: "Java", percentage: 85, icon: Code },
+        { skill: "Kotlin", percentage: 90, icon: Code },
+      ]
+    },
+    {
+      title: "Web Technologies",
+      icon: Globe,
+      skills: [
+        { skill: "ReactJS", percentage: 85, icon: Globe },
+        { skill: "TypeScript", percentage: 70, icon: Globe },
+        { skill: "Vue.js", percentage: 70, icon: Globe },
+        { skill: "Next.js", percentage: 80, icon: Globe },
+      ]
+    },
+    {
+      title: "Mobile Development",
+      icon: Cpu,
+      skills: [
+        { skill: "React Native", percentage: 80, icon: Cpu },
+        { skill: "Android (Kotlin)", percentage: 75, icon: Cpu },
+      ]
+    },
+    {
+      title: "Other Technologies",
+      icon: Database,
+      skills: [
+        { skill: "MySQL", percentage: 80, icon: Database },
+        { skill: "R", percentage: 65, icon: Database },
+        { skill: "HTML", percentage: 95, icon: Globe },
+        { skill: "CSS", percentage: 90, icon: Globe },
+      ]
+    },
+  ];
   return (
     <div className="min-h-screen text-gray-800 font-sans">
 
-<header className="py-4 bg-white shadow-md fixed w-full z-10">
-      <div className="container mx-auto flex justify-between items-center px-4">
-          <h1 className="text-2xl font-bold text-yellow-500">RH's Technology</h1>
-          <nav className="space-x-4 text-sm hidden md:block">
-            {['Home', 'About', 'Skills', 'Projects'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-yellow-500 transition duration-300">
-                {item}
-              </a>
-            ))}
-            <a href="mailto:rizkihelmi1008@gmail.com" className="hover:text-yellow-500 transition duration-300">
-              Contact
-            </a>
-            <a href="https://drive.google.com/file/d/1nIbHH6FvPId8p6DYy0IZV_UeCr_8HRyj/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition duration-300">
-              Resume
-            </a>
-          </nav>
-        </div>
-      </header>
-
-  <Section id="home" className="h-screen flex items-center justify-center relative">
-      <div className="absolute inset-0 z-0 flex justify-center items-center">
-    <img 
-      src={bc} 
-      alt="Background" 
-      className="max-w-full max-h-full object-contain"
-    />
-    <div className="absolute inset-0 bg-black opacity-50"></div>
+<header className="py-6 bg-gradient-to-r from-yellow-400 to-yellow-600 shadow-lg fixed w-full z-10">
+  <div className="container mx-auto flex justify-between items-center px-6">
+    <h1 className="text-3xl font-extrabold text-white tracking-wide">RH's Technology</h1>
+    <nav className="space-x-6 text-sm hidden md:flex items-center">
+      {['Home', 'About', 'Skills', 'Projects'].map((item) => (
+        <a 
+          key={item} 
+          href={`#${item.toLowerCase()}`} 
+          className="text-white hover:text-yellow-200 transition duration-300 ease-in-out transform hover:scale-110"
+        >
+          {item}
+        </a>
+      ))}
+      <a 
+        href="mailto:rizkihelmi1008@gmail.com" 
+        className="text-white hover:text-yellow-200 transition duration-300 ease-in-out transform hover:scale-110"
+      >
+        Contact
+      </a>
+      <a 
+        href="https://drive.google.com/file/d/1nIbHH6FvPId8p6DYy0IZV_UeCr_8HRyj/view?usp=sharing" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="bg-white text-yellow-600 px-4 py-2 rounded-full hover:bg-yellow-100 transition duration-300 ease-in-out transform hover:scale-110"
+      >
+        Resume
+      </a>
+    </nav>
   </div>
-        <div className="relative z-10 text-center text-white">
-          <p className="text-2xl mb-3 font-semibold animate-pulse">Hello there!</p>
-          <h2 className="text-7xl font-extrabold mb-6 text-yellow-500 animate-bounce">I'm Rizki Helmi</h2>
-          <p className="text-3xl font-light mb-10 italic">Innovating in AI, Mobile, and Web Development</p>
-          <div className="space-x-4">
-            <button onClick={() => window.location.href = 'mailto:rizkihelmi1008@gmail.com'} className="bg-yellow-500 text-black px-8 py-4 rounded-full text-xl font-bold hover:bg-yellow-600 transition duration-300 transform hover:scale-105">
-              HIRE ME
-            </button>
-            <button className="border-2 border-yellow-500 text-yellow-500 px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 hover:text-black transition duration-300">
-              MY WORKS
-            </button>
-          </div>
-        </div>
-      </Section>
+</header>
+
+<Section id="home" className="h-screen flex items-center justify-center relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <motion.img 
+          src={bc} 
+          alt="Background" 
+          className="w-full h-full object-cover"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+        />
+        <div className="absolute inset-0 bg-black opacity-60"></div>
+      </div>
+      <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+        <motion.p 
+          className="text-2xl mb-3 font-semibold text-yellow-300"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Greetings, tech enthusiasts!
+        </motion.p>
+        <motion.h1 
+          className="text-6xl sm:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          I'm Rizki Helmi
+        </motion.h1>
+        <motion.p 
+          className="text-2xl sm:text-3xl font-light mb-10 italic text-gray-300"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          Crafting the future through AI, Mobile, and Web Innovation
+        </motion.p>
+        <motion.div 
+          className="space-y-4 sm:space-y-0 sm:space-x-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <button 
+            onClick={() => window.location.href = 'mailto:rizkihelmi1008@gmail.com'} 
+            className="bg-yellow-500 text-black px-8 py-4 rounded-full text-xl font-bold hover:bg-yellow-600 transition duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Let's Collaborate
+          </button>
+          <button className="border-2 border-yellow-500 text-yellow-500 px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 hover:text-black transition duration-300 shadow-lg">
+            Explore My Projects
+          </button>
+        </motion.div>
+      </div>
+      <motion.div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <ChevronDown size={32} className="text-yellow-500" />
+      </motion.div>
+    </Section>
 
       <Section id="about">
   <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
@@ -136,7 +302,6 @@ const ProjectCard = ({ title, description, images, technologies, link }) => {
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         {[
           { icon: <Camera size={18} />, label: 'Name', value: 'Rizki Helmi' },
-          { icon: <Calendar size={18} />, label: 'Date of birth', value: 'August 10, 2001' },
           { icon: <MapPin size={18} />, label: 'Address', value: 'Penang, Malaysia' },
           { icon: <Mail size={18} />, label: 'Email', value: 'rizkihelmi1008@gmail.com' },
           { icon: <Phone size={18} />, label: 'Phone', value: '+60-1170-0044-491/+62-852-6090-2451' },
@@ -205,8 +370,22 @@ Go-Tour is a web application designed to match travelers with personalized trave
               {src: gthree, alt: "Web app screenshot"},
               
             ]}
-            technologies={['React JS', 'Alibaba Cloud', 'FastAPI', 'Web Development']}
+            technologies={['React JS', 'Alibaba Cloud', 'FastAPI', 'Web Development',]}
             link="https://github.com/rizkihelmi10"
+          />
+            <ProjectCard
+            title="AskPbot"
+            description={<>
+Prompt-based AI chatbot that provides instant answers to a wide range of questions. Built with React for the frontend and FastAPI for the backend, AskPbot leverages the power of the OpenAI API to deliver accurate and relevant responses to user queries. With a user-friendly interface, AskPbot offers a seamless and intuitive experience for users seeking quick and reliable information.
+I am as Frontend Engineer working closely with my Senior Fullstack Engineer <strong>Thoriq Akbar</strong> and Backend Engineer <strong>Ariff Nazhan</strong> from <strong>Pandai Education Sdn Bhd.</strong></>}
+            images={[
+              {src: pbotwo, alt: "Web app screenshot"},
+              {src: pbotone, alt: "Mobile app screenshot"},
+              {src: pbothree, alt: "Web app screenshot"},
+              
+            ]}
+            technologies={[ 'Next.js', 'TypeScript', 'FastAPI', 'Web Development', 'OpenAI', 'React', 'Tailwind CSS', 'PostgreSQL', 'Python']}
+            link="https://aitutor.pandai.org/"
           />
         </div>
         <div className="text-center mt-8">
@@ -275,30 +454,27 @@ Go-Tour is a web application designed to match travelers with personalized trave
   </div>
 </Section>
       
-         <Section id="skills" className="bg-gray-100">
-        <h2 className="text-3xl font-bold mb-8 text-center">My Skills</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-  <SkillBar skill="Python" percentage={80} />
-  <SkillBar skill="C++" percentage={75} />
-  <SkillBar skill="Java" percentage={85} />
-  <SkillBar skill="Kotlin" percentage={90} />
-  <SkillBar skill="ReactJS" percentage={85} />
-  <SkillBar skill="TypeScript" percentage={70} />
-  <SkillBar skill="React Native" percentage={80} />
-  <SkillBar skill="Vue.js" percentage={70} />
-  <SkillBar skill="Next.js" percentage={80} />
-  <SkillBar skill="MySQL" percentage={80} />
-  <SkillBar skill="R" percentage={65} />
-  <SkillBar skill="HTML" percentage={95} />
-  <SkillBar skill="CSS" percentage={90} />
-</div>
-      </Section>
+<section id="skills" className="bg-gray-100 py-16">
+      <div className="container mx-auto px-4">
+        <motion.h1 
+          className="text-4xl font-bold mb-12 text-center text-gray-800"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          My Skills
+        </motion.h1>
+        {skillCategories.map((category, index) => (
+          <SkillCategory key={index} {...category} />
+        ))}
+      </div>
+    </section>
 
       
 
       <footer className="py-6 bg-gray-800 text-white text-center">
         <div className="container mx-auto px-4">
-          <p>© 2024 My Portfolio. All Rights Reserved.</p>
+          <p>© 2024 Rizki Helmi Technology. All Rights Reserved.</p>
         </div>
       </footer>
     </div>
