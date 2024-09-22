@@ -105,8 +105,8 @@ const ChatBot = () => {
             <MessageCircle size={24} />
           </button>
           <div className="relative">
-            <div className="absolute bottom-full right-20 mb-2 w-40 bg-yellow-500 text-white text-center py-2 rounded-lg shadow-lg animate-bounce">
-              <p className="text-sm">TRY TO CHAT WITH BOT VERSION OF ME</p>
+            <div className="absolute bottom-14 right-0 mb-2 w-32 text-xs font-medium bg-yellow-500 text-white text-center py-1 rounded-lg shadow-lg animate-bounce">
+              <p className="text-xs">CHAT WITH BOT ME</p>
             </div>
           </div>
         </div>
