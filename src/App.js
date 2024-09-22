@@ -22,6 +22,7 @@ import pbotwo from './pbottwo.png';
 import pbothree from './pbotthree.png';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import ChatBot from './chatbot';
 
 const Section = ({ id, className, children }) => (
   <section id={id} className={`py-16 ${className}`}>
@@ -477,6 +478,9 @@ I am as Frontend Engineer working closely with my Senior Fullstack Engineer <str
           <p>© 2024 Rizki Helmi Technology. All Rights Reserved.</p>
         </div>
       </footer>
+      <div className="fixed bottom-4 right-4 z-50">
+        <ChatBot />
+      </div>
     </div>
   );
 };
