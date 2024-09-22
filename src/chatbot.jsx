@@ -26,7 +26,7 @@ const ChatBot = () => {
   
     try {
       console.log('User input:', userInput); // Log user input
-      const response = await axios.post('http://localhost:8000/chat/', { user_input: userInput });
+      const response = await axios.post('https://salty-inlet-45536-9b607e98bf78.herokuapp.com/chat/', { user_input: userInput });
       
       console.log('API Response:', response); // Log API response
   
