@@ -51,7 +51,7 @@ const ChatBot = () => {
   return (
     <div className="fixed bottom-4 right-4 z-50">
       {isOpen ? (
-        <div className="bg-white rounded-lg shadow-xl w-80 h-96 flex flex-col">
+        <div className="bg-white rounded-lg shadow-xl w-80 h-96 flex flex-col animate-slide-in">
           <div className="bg-yellow-500 text-white p-4 rounded-t-lg flex justify-between items-center">
             <h2 className="text-lg font-semibold">Chat with Rizki's Bot</h2>
             <button onClick={toggleChat} className="text-white hover:text-gray-200">
@@ -97,12 +97,19 @@ const ChatBot = () => {
           </div>
         </div>
       ) : (
-        <button 
-          onClick={toggleChat}
-          className="bg-yellow-500 text-white p-4 rounded-full shadow-lg hover:bg-yellow-600 transition duration-300"
-        >
-          <MessageCircle size={24} />
-        </button>
+        <div className="flex flex-col items-end">
+          <button 
+            onClick={toggleChat}
+            className="bg-yellow-500 text-white p-4 rounded-full shadow-lg hover:bg-yellow-600 transition duration-300 animate-pulse"
+          >
+            <MessageCircle size={24} />
+          </button>
+          <div className="relative">
+            <div className="absolute bottom-full right-20 mb-2 w-40 bg-yellow-500 text-white text-center py-2 rounded-lg shadow-lg animate-bounce">
+              <p className="text-sm">TRY TO CHAT WITH BOT VERSION OF ME</p>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
