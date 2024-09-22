@@ -26,7 +26,7 @@ const ChatBot = () => {
   
     try {
       console.log('User input:', userInput); // Log user input
-      const response = await axios.post('https://backend-chat-umber.vercel.app/chat/', { user_input: userInput });
+      const response = await axios.post('https://chatbotbackend-three.vercel.app/chat/', { user_input: userInput });
       
       console.log('API Response:', response); // Log API response
   
