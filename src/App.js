@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Camera, Mail, Phone, MapPin, Calendar } from 'lucide-react';
 import { Code, Cpu, Database, Globe } from 'lucide-react';
+import { Analytics } from "@vercel/analytics/react"
 
 // Assume bc.png is imported correctly
 import bc from './bc.jpg';
@@ -232,6 +233,7 @@ const ProjectCard = ({ title, description, images, technologies, link }) => {
           animate={{ scale: 1 }}
           transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
         />
+        <Analytics/>
         <div className="absolute inset-0 bg-black opacity-60"></div>
       </div>
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
