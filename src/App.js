@@ -380,7 +380,7 @@ Go-Tour is a web application designed to match travelers with personalized trave
             title="AskPbot"
             description={<>
 Prompt-based AI chatbot that provides instant answers to a wide range of questions. Built with React for the frontend and FastAPI for the backend, AskPbot leverages the power of the OpenAI API to deliver accurate and relevant responses to user queries. With a user-friendly interface, AskPbot offers a seamless and intuitive experience for users seeking quick and reliable information.
-I am as Frontend Engineer working closely with my Senior Fullstack Engineer <strong>Thoriq Akbar</strong> and Backend Engineer <strong>Ariff Nazhan</strong> from <strong>Pandai Education Sdn Bhd.</strong></>}
+I am as an intern working closely with my Senior Fullstack Engineer <strong>Thoriq Akbar</strong> and Backend Engineer <strong>Ariff Nazhan</strong> from <strong>Pandai Education Sdn Bhd.</strong></>}
             images={[
               {src: pbotwo, alt: "Web app screenshot"},
               {src: pbotone, alt: "Mobile app screenshot"},
