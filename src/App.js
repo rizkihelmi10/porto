@@ -24,6 +24,7 @@ import pbothree from './pbotthree.png';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import ChatBot from './chatbot';
+import logo from './RizkiHelmitech.png'
 
 const Section = ({ id, className, children }) => (
   <section id={id} className={`py-16 ${className}`}>
@@ -192,9 +193,13 @@ const ProjectCard = ({ title, description, images, technologies, link }) => {
   return (
     <div className="min-h-screen text-gray-800 font-sans">
 
-<header className="py-6 bg-gradient-to-r from-yellow-400 to-yellow-600 shadow-lg fixed w-full z-10">
+<header className="py-0 bg-gradient-to-r from-yellow-400 to-yellow-600 shadow-lg fixed w-full z-10">
   <div className="container mx-auto flex justify-between items-center px-6">
-    <h1 className="text-3xl font-extrabold text-white tracking-wide">RH's Technology</h1>
+    <img
+    src = {logo}
+    alt="Logo"
+    className="w-24 h-24 rounded-full"
+    />
     <nav className="space-x-6 text-sm hidden md:flex items-center">
       {['Home', 'About', 'Skills', 'Projects'].map((item) => (
         <a 
