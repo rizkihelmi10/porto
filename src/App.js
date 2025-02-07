@@ -3,7 +3,7 @@ import { Camera, Mail, Phone, MapPin, Calendar } from 'lucide-react';
 import { Code, Cpu, Database, Globe } from 'lucide-react';
 import { Analytics } from "@vercel/analytics/react"
 
-// Assume bc.png is imported correctly
+
 import bc from './bc.jpg';
 import me from './me.jpg';
 import mob from './mob.png';
