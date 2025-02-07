@@ -217,7 +217,7 @@ const ProjectCard = ({ title, description, images, technologies, link }) => {
         Contact
       </a>
       <a 
-        href="https://drive.google.com/file/d/1nIbHH6FvPId8p6DYy0IZV_UeCr_8HRyj/view?usp=sharing" 
+        href="https://drive.google.com/file/d/1WYwLesFh5VFBcaevg2lZYr96_bMfeK_F/view?usp=sharing" 
         target="_blank" 
         rel="noopener noreferrer" 
         className="bg-white text-yellow-600 px-4 py-2 rounded-full hover:bg-yellow-100 transition duration-300 ease-in-out transform hover:scale-110"
