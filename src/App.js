@@ -21,6 +21,9 @@ import gthree from './gthree.png';
 import pbotone from './pbotone.png';
 import pbotwo from './pbottwo.png';
 import pbothree from './pbotthree.png';
+import latahzan1 from './latahzan1.png'
+import latahzan2 from './latahzan2.png'
+import latahzan3 from './latahzan3.png'
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import ChatBot from './chatbot';
