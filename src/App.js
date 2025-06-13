@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Camera, Mail, Phone, MapPin, Calendar } from 'lucide-react';
 import { Code, Cpu, Database, Globe } from 'lucide-react';
 import { Analytics } from "@vercel/analytics/react"
-import Head from 'next/head';
+import {Helmet} from 'react-helmet'
 
 import bc from './bc.jpg';
 import me from './me.jpg';
@@ -158,7 +158,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen text-gray-800 font-sans">
-      <Head>
+      <Helmet>
         <title>Rizki Helmi | AI & Full-Stack Developer Portfolio</title>
         <meta name="description" content="Professional portfolio of Rizki Helmi, showcasing expertise in AI, mobile development, and web technologies. View projects, skills, and work experience." />
         <meta name="keywords" content="AI developer, mobile developer, web developer, Kotlin, React, Python, portfolio, software engineer, Rizki Helmi" />
@@ -201,7 +201,7 @@ const App = () => {
             "email": "rizkihelmi1008@gmail.com",
           })}
         </script>
-      </Head>
+      </Helmet>
 
       <header className="py-0 bg-gradient-to-r from-yellow-400 to-yellow-600 shadow-lg fixed w-full z-10">
         <div className="container mx-auto flex justify-between items-center px-6">
