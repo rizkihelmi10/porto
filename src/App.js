@@ -419,6 +419,21 @@ const App = () => {
             technologies={['Next.js', 'TypeScript', 'FastAPI', 'Web Development', 'OpenAI', 'React', 'Tailwind CSS', 'PostgreSQL', 'Python']}
             link="https://aitutor.pandai.org/"
           />
+            <ProjectCard
+            title="La-Tahzan"
+            description="Developed a bilingual Islamic Q&A chatbot that provides guidance and comfort based on Islamic teachings, where users can share their thoughts and feelings, and La-Tahzan will answer based on the Quran. The interface features:
+            Dark/light mode
+            Language switching between Bahasa Indonesia and English
+            Real-time responses to Islamic questions
+            La-Tahzan (meaning 'Don't Be Sad') aims to make Islamic knowledge more accessible to everyone and help people understand that they need not fear sadness because Allah will always be there. What makes this special: I'm using OpenAI technology that has been trained with a Quran database, ensuring responses are grounded in authentic Islamic teachings. Built with Next.js as Frontend and FastAPI as Backend."            
+            images={[
+              {src: latahzan1, alt: "interface chat of latahzan"},
+              {src: latahzan2, alt: "darkmode"},
+              {src: latahzan3, alt: "tech used"},
+            ]}
+            technologies={['Next.js', 'TypeScript', 'FastAPI', 'Web Development', 'OpenAI', 'React', 'Tailwind CSS', 'RAG', 'Python']}
+            link="https://la-tahzan.vercel.app/"
+          />
         </div>
         <div className="text-center mt-8">
           <a
